@@ -86,3 +86,9 @@ function infiniteLoop(): never {
 let unionType: string | number
 unionType = "seven"
 unionType = 7
+
+// Intersection(交叉类型)
+let intersectionType: { name: string } & { age: number }
+intersectionType = { name: "Tom", age: 25 }
+// 只给一个将会报错，因为两个都要给
+// intersectionType = { name: "Tom"} // 这个将会报错

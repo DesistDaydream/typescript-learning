@@ -2,7 +2,8 @@
 // 如果不写 export{}，则这个文件中的所有变量都是全局变量，
 // 比如在其他文件也声明了 isDone 变量，那么将会报错：
 // 无法重新声明块范围变量“isDone”。ts(2451)
-export {}
+export { isDone }
+// import 与 export 属于 Module(模块) 知识点，在后面单独的目录中进行详解
 
 // TS 原始数据类型
 // Boolean(布尔)

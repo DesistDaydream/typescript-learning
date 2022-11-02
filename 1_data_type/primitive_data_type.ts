@@ -49,14 +49,6 @@ enum Color {
 }
 let colorName: string = Color[2]
 
-// Any(任意)
-let notSure: any = 4
-notSure = "maybe a string instead"
-notSure = false // okay, definitely a boolean
-
-let list: any[] = [1, true, "free"]
-list[1] = 100
-
 // Void(空)
 // 若函数没有返回值，则函数的类型就是 void
 let voidFunc = function voidFuncDemo() {

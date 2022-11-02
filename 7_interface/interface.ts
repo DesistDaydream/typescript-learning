@@ -1,5 +1,6 @@
 //  TS 中的接口类似 Go 中的结构体，用于定义对象的类型(即.object 类型)
 interface Person {
+  // 语法：属性名:属性值
   name: string
   age: number
 }

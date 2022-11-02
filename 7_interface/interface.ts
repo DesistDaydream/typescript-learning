@@ -9,18 +9,27 @@ interface Person {
   // 可选属性的含义是该属性可以不存在。
   // 注意：可选属性必须接在必需属性后面。
   optional?: string
+  // 只读属性
+  // 语法：readonly 属性名:属性值
+  // 只读属性的含义是只能在对象刚刚创建的时候修改其值。
+  readonly id: number
 }
 
 function NewPerson(): Person {
   return {
     name: "Tom",
     age: 25,
+    id: 1,
   }
 }
 
 let tom: Person = NewPerson()
 
 console.log(tom)
+
+// 不可以修改接口中只读的属性，否则会报错：
+// Error: Cannot assign to 'id' because it is a read-only property.
+// tom.id = 5
 
 // 接口的属性是函数。
 interface FuncInterface {

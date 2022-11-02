@@ -23,9 +23,10 @@ let myAge: number = 25
 let sentence: string = `Hello, my name is ${myName}.
 I'll be ${myAge + 1} years old next month.`
 
-// Array
-let arrayType: number[] = [1, 2, 3]
-let arrayTypeWithTypename: Array<number> = [1, 2, 3]
+// 常量类型
+// 鼠标移动到 numConstType 上可以发现，numConstType 类型为1，即常量的值就是常量的类型
+// 这个变量的类型名称就是 1，而不是 number
+const numConstType = 1
 
 // Tuple(元组)
 let x: [string, number]
@@ -81,7 +82,7 @@ function infiniteLoop(): never {
   while (true) {}
 }
 
-// Type assertions
-let someValue: any = "this is a string"
-let strLengthOne: number = (<string>someValue).length
-let strLengthTwo: number = (someValue as string).length
+// Union Types(联合类型)
+let unionType: string | number
+unionType = "seven"
+unionType = 7

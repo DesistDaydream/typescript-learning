@@ -35,12 +35,15 @@ x = ["hello", 10] // OK
 // x = [10, "hello"] // Error
 
 // Enum(枚举)
-enum Color {
-  Red,
-  Green,
-  Blue,
+enum StatusCode {
+  scuess = 200,
+  notFound = 404,
+  serverError = 500,
 }
-let c: Color = Color.Green
+let statusCode: StatusCode = StatusCode.scuess
+console.log(statusCode) // 200
+// 获取 StatusCode 中值为 200 的属性名称
+console.log(StatusCode[200]) // scuess;
 
 enum Color {
   RedTwo = 1,
@@ -48,6 +51,9 @@ enum Color {
   BlueTwo,
 }
 let colorName: string = Color[2]
+// 属性的默认值是在前一个属性的基础上递增，所以下面会输出值为 2 的属性，即.GreenTwo
+console.log(colorName)
+// 第一个属性的默认值为 0
 
 // Void(空)
 // 若函数没有返回值，则函数的类型就是 void

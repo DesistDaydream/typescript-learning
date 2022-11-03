@@ -41,8 +41,8 @@ interface ResponseIF {
 }
 
 // Promise 的基本使用
-// 注意 Promise<ResolveIF> 的写法，表示 Promise 的返回值是 ResolveIF 类型；
-// 如果不这么写，那么 resolve 的返回值就是 any 类型，这样就不会有代码提示了。
+// 注意 Promise<ResolveIF> 的写法，表示 resolve 中的数据 ResolveIF 类型；
+// 如果不这么写，那么 resolve 的返回值就是 any 类型，这样就不会有代码提示了，并且也无法直接调用其中的任何属性。
 let p: Promise<ResolveIF> = new Promise(function (resolve, reject) {
   // resolve 函数的作用是，将 Promise 对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
   resolve({

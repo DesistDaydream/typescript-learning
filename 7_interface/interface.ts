@@ -34,10 +34,32 @@ console.log(tom)
 // 接口的属性是函数。
 interface FuncInterface {
   // 语法：属性名(参数名:参数类型):返回值类型
-  (p: string): void
+  // 这里的属性名可省略
+  (s: string): void
 }
-let fn: FuncInterface = (p: string) => {}
+let fn: FuncInterface = (s: string) => {
+  console.log("接口中函数属性的逻辑：", s)
+}
 fn("hello")
+
+// 接口的属性是一般属性和函数属性
+interface FuncAndNormalInterface {
+  Name: string
+  // 语法：属性名(参数名:参数类型):返回值类型
+  FuncName(p: string): void
+}
+
+function NewFuncInterface(): FuncAndNormalInterface {
+  return {
+    Name: "Tom",
+    FuncName: (p: string) => {
+      console.log(p)
+    },
+  }
+}
+
+let fnFunc: FuncAndNormalInterface = NewFuncInterface()
+fnFunc.FuncName("接口的属性是一般属性和函数属性")
 
 // 接口的属性是数组。
 interface ArrayInterface {

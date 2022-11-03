@@ -27,3 +27,41 @@ function swap<T, U>(t: T, u: U): [U, T] {
 }
 let swapResult = swap<string, number>("hello", 123)
 console.log(swapResult)
+
+// 泛型中，类型的 默认值
+function createArray<T = string>(length: number, value: T): T[] {
+  let result: T[] = []
+  for (let i = 0; i < length; i++) {
+    result[i] = value
+  }
+  return result
+}
+let createArrayResult = createArray(3, "x")
+console.log(createArrayResult)
+
+// 泛型约束
+// 通过泛型约束，我们可以让函数调用时，传入的参数只能是指定的类型
+// 让 N 只能是 string 或 number 类型
+interface PersionIF<N extends string | number, G> {
+  name: N
+  getName: () => G
+}
+// 调用时，如果传入的参数不是指定的类型，就会报错
+// 比如：如果写成 PersionIF<boolean,string> 将会报错：类型“boolean”不满足约束“string | number”。
+let persion: PersionIF<string, string> = {
+  name: "DesistDaydream",
+  getName() {
+    return this.name
+  },
+}
+console.log(persion.getName())
+
+// 有时候我们需要对泛型的类型进行约束，比如下面的函数，我们需要对泛型的类型进行约束，使其继承某个接口
+interface Lengthwise {
+  length: number
+}
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+  console.log(arg.length)
+  return arg
+}
+loggingIdentity({ length: 10 })

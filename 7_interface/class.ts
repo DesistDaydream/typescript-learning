@@ -22,3 +22,10 @@ class Person {
 let p = new Person("Tom", 18)
 console.log(p)
 p.sayHello()
+
+// 上面的 class 相当于定义了下面的 interface
+interface Person {
+  name: string
+  age: number
+  sayHello(): void
+}

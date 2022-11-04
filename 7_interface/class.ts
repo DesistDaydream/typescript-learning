@@ -35,9 +35,11 @@ interface Person {
 // protected 修饰符，表示受保护的属性。
 // 若不写修饰符，**默认为 public**。私有属性无法从外部调用，也无法被继承。
 class PersonTwo {
+  // 若不写修饰符，**默认为 public**。私有属性无法从外部调用，也无法被继承。
   // public 修饰符，表示公有属性。
   public name: string
   // private 修饰符，表示私有属性。
+  // 比如下面 new PersonTwo() 后，如果编写 p.male 将会报错：属性“male”为私有属性，只能在类“Person”中访问。
   private male: string
   // protected 修饰符，表示受保护的属性。
   protected sayHi() {
@@ -45,8 +47,8 @@ class PersonTwo {
   }
   // readonly 修饰符，表示只读属性。
   public readonly age: number = 20
-  // 若不写修饰符，**默认为 public**。私有属性无法从外部调用，也无法被继承。
-  // 比如下面 new PersonTwo() 后，如果编写 p.male 将会报错：属性“male”为私有属性，只能在类“Person”中访问。
+  // static 修饰符，表示静态属性。
+  static title: string = "Person"
 
   // constructor 是关键字，用于构造函数
   constructor(name: string, age: number) {

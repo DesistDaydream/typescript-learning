@@ -1,6 +1,8 @@
 export {}
 // Class(类)
 // TS 中的类，是基于 ES6 的类的语法糖
+// class 与 interface 很相似
+// 定义 class 的同时也会创建相同名称的 interface
 class Person {
   name: string
   // 定义属性时，还可以同时设置默认值
@@ -20,6 +22,3 @@ class Person {
 let p = new Person("Tom", 18)
 console.log(p)
 p.sayHello()
-
-// TS 中 class 与 interface 很相似，但是有一些区别
-// 定义 class 的同时也会创建相同名称的 interface

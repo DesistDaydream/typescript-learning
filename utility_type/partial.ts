@@ -1,4 +1,5 @@
-// Partial 是一个工具类型，它接受一个类型作为参数，将该类型的所有属性变为可选项
+// https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
+// Partial 是一个工具类型，它接受一个类型作为参数，将该类型的所有属性变为**可选项**
 // type Partial<T> = { [P in keyof T]?: T[P] | undefined; }
 // 例如：Partial<User> 将 User 的所有属性变为可选项
 // 例如：Partial<User> 等价于 { name?: string; age?: number; }

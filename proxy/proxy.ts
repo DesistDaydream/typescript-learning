@@ -16,18 +16,7 @@ let obj: Person = {
 // target：被代理的目标对象。
 // handler：一个对象，其属性是当执行一个操作时定义代理的行为的函数。
 // 返回值：一个新的代理对象。
-let proxyInstance = new Proxy(obj, {
-  // get() 方法用于拦截某个属性的读取操作。
-  // 语法：get(target, propKey, receiver)
-  // 参数：
-  // target：目标对象。
-  // propKey：要读取的属性。
-  // receiver：proxy 实例本身（严格地说，是操作行为所针对的对象）。
-  // 返回值：一个对象。
-  get(target, propKey) {
-    console.log("get", target, propKey)
-    // return target[propKey]
-  },
+let proxyInstanceOther = new Proxy(obj, {
   // set() 方法用于拦截某个属性的赋值操作。
   // 语法：set(target, propKey, value, receiver)
   // 参数：
@@ -134,19 +123,34 @@ let proxyInstance = new Proxy(obj, {
   },
 })
 
-let proxyInstanceTwo = new Proxy(obj, {
+console.log(proxyInstanceOther.name)
+
+// Proxy() 方法用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）。
+// 语法：new Proxy(target, handler)
+// 参数：
+// target：被代理的目标对象。
+// handler：一个对象，其属性是当执行一个操作时定义代理的行为的函数。
+// 返回值：一个新的代理对象实例。这个代理对象实例中的属性与被代理的目标对象中的属性一一对应，但是代理对象中的属性是不可枚举的。
+let proxyInstance = new Proxy(obj, {
+  // get() 方法用于拦截某个属性的读取操作。当我们调用 obj 下的任何属性时，都会触发 get() 方法。
+  // 语法：get(target, propKey, receiver)
+  // 参数：
+  // target：目标对象。
+  // propKey：要读取的属性。
+  // receiver：proxy 实例本身（严格地说，是操作行为所针对的对象）。
+  // 返回值：一个对象。
   get(target, property, receiver) {
     console.log("执行了get方法")
     console.log("target 参数的值：", target)
     console.log("property 参数的值：", property)
     console.log("receiver 参数的值：", receiver)
 
-    // 使用 return target[property] 是将会报错：元素隐式具有 "any" 类型，因为类型为 "string | symbol" 的表达式不能用于索引类型 "Person"。
-    // 在类型 "Person" 上找不到具有类型为 "string" 的参数的索引签名。
+    // return target[property]
+    // 使用 return target[property] 是将会报错：元素隐式具有 "any" 类型，因为类型为 "string | symbol" 的表达式不能用于索引类型 "Person"。在类型 "Person" 上找不到具有类型为 "string" 的参数的索引签名。
     // 解决上述错误：
     return Reflect.get(target, property, receiver)
+    // TODO: 还有其他方式解决上述问题吗？
   },
 })
 
 console.log(proxyInstance.name)
-console.log(proxyInstanceTwo.name)

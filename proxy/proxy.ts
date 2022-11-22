@@ -161,10 +161,11 @@ let proxyInstance = new Proxy(obj, {
     // 将新值赋值给目标对象
     // target[property] = newValue
     // 上述代码会报错：元素隐式具有 "any" 类型，因为类型为 "string | symbol" 的表达式不能用于索引类型 "Person"。在类型 "Person" 上找不到具有类型为 "string" 的参数的索引签名。
-    // TODO: 如何解决上述错误？
-    // 如果不赋值的话，我们在外部无法获取新的值。
+    // 解决上述错误:
+    return Reflect.set(target, property, newValue)
+    // TODO: 还有其他方式解决上述问题吗？
 
-    return true
+    // return true
   },
 })
 

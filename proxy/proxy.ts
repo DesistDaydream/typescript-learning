@@ -17,19 +17,6 @@ let obj: Person = {
 // handler：一个对象，其属性是当执行一个操作时定义代理的行为的函数。
 // 返回值：一个新的代理对象。
 let proxyInstanceOther = new Proxy(obj, {
-  // set() 方法用于拦截某个属性的赋值操作。
-  // 语法：set(target, propKey, value, receiver)
-  // 参数：
-  // target：目标对象。
-  // propKey：要设置的属性。
-  // value：要设置的值。
-  // receiver：proxy 实例本身（严格地说，是操作行为所针对的对象）。
-  // 返回值：一个布尔值。
-  set(target, propKey, value) {
-    console.log("set", target, propKey, value)
-    // target[propKey] = value
-    return true
-  },
   // has() 方法用来拦截 HasProperty 操作，即判断对象是否具有某个属性时，这个方法会生效。
   // 语法：has(target, propKey)
   // 参数：
@@ -132,18 +119,21 @@ console.log(proxyInstanceOther.name)
 // handler：一个对象，其属性是当执行一个操作时定义代理的行为的函数。
 // 返回值：一个新的代理对象实例。这个代理对象实例中的属性与被代理的目标对象中的属性一一对应，但是代理对象中的属性是不可枚举的。
 let proxyInstance = new Proxy(obj, {
-  // get() 方法用于拦截某个属性的读取操作。当我们调用 obj 下的任何属性时，都会触发 get() 方法。
+  // get() 方法用于拦截某个属性的读取操作。当我们调用“被代理的目标对象”下的任何属性时，都会触发 get() 方法。
   // 语法：get(target, propKey, receiver)
   // 参数：
   // target：目标对象。
   // propKey：要读取的属性。
-  // receiver：proxy 实例本身（严格地说，是操作行为所针对的对象）。
+  // receiver：proxy 实例本身（严格地说，是操作行为所针对的对象）。可省略
   // 返回值：一个对象。
   get(target, property, receiver) {
-    console.log("执行了get方法")
+    console.log(
+      "触发 get() 方法的时机。当我们调用“被代理的目标对象”下的任何属性时。"
+    )
     console.log("target 参数的值：", target)
     console.log("property 参数的值：", property)
     console.log("receiver 参数的值：", receiver)
+    console.log("====================================")
 
     // return target[property]
     // 使用 return target[property] 是将会报错：元素隐式具有 "any" 类型，因为类型为 "string | symbol" 的表达式不能用于索引类型 "Person"。在类型 "Person" 上找不到具有类型为 "string" 的参数的索引签名。
@@ -151,6 +141,35 @@ let proxyInstance = new Proxy(obj, {
     return Reflect.get(target, property, receiver)
     // TODO: 还有其他方式解决上述问题吗？
   },
+  // set() 方法用于拦截某个属性的赋值操作。
+  // 语法：set(target, propKey, value, receiver)
+  // 参数：
+  // target: 目标对象。
+  // property: 要设置的属性。
+  // newValue: 要设置的新值。
+  // receiver：proxy 实例本身（严格地说，是操作行为所针对的对象）。可省略
+  // 返回值：一个布尔值。
+  set(target, property, newValue) {
+    console.log(
+      "触发 set() 方法的时机。当我们给“被代理的目标对象”下的任何属性赋值时。"
+    )
+    console.log("target 参数的值：", target)
+    console.log("property 参数的值：", property)
+    console.log("newValue 参数的值：", newValue)
+    console.log("====================================")
+
+    // 将新值赋值给目标对象
+    // target[property] = newValue
+    // 上述代码会报错：元素隐式具有 "any" 类型，因为类型为 "string | symbol" 的表达式不能用于索引类型 "Person"。在类型 "Person" 上找不到具有类型为 "string" 的参数的索引签名。
+    // TODO: 如何解决上述错误？
+    // 如果不赋值的话，我们在外部无法获取新的值。
+
+    return true
+  },
 })
 
+console.log(proxyInstance.name)
+// 当我们给 proxyInstance 对象中的属性赋值时，会触发 set() 方法。
+proxyInstance.name = "张三"
+// 此时我们访问 proxyInstance 对象中的属性，不会是新的值，而是旧的值。
 console.log(proxyInstance.name)

@@ -18,8 +18,7 @@ interface ResponseIF {
 // 2. 一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise 对象的状态改变，只有两种可能：从 Pending 变为 Resolved 和从 Pending 变为 Rejected。
 // 3. Promise 新建后就会立即执行。
 //
-// Promise 的基本使用
-// Promise 是一个构造函数，我们可以 new Promise 得到一个 Promise 的实例。
+// 我们可以 new Promise 得到一个 Promise 的实例。
 // Promise 构造函数接收一个函数作为参数，该函数的两个参数分别是 resolve 和 reject。
 // 它们是两个函数，由 JavaScript 引擎提供，不用自己部署。
 // 注意 Promise<ResolveIF> 的写法，表示 resolve 中的数据 ResolveIF 类型；
@@ -34,12 +33,12 @@ let p: Promise<ResolveIF> = new Promise(function (resolve, reject) {
   // reject 函数的作用是，将 Promise 对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
   reject()
 })
-//
+
 // Promise 实例生成以后，可以用 then 方法分别指定 resolved 状态和 rejected 状态的回调函数。
 p.then((res) => {
   console.log(res.code, res.data.token, res.message)
 })
-//
+
 // then 方法可以接受两个回调函数作为参数。
 // 第一个回调函数是 Promise 对象的状态变为 resolved 时调用，第二个回调函数是 Promise 对象的状态变为 rejected 时调用。
 // 其中，第二个函数是可选的，不一定要提供。
@@ -53,3 +52,12 @@ p.then((res) => {
 // then 方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行。
 // 所以，Promise 的回调函数是在当前脚本所有同步任务执行完才会执行。
 // Promise 的回调函数是在当前脚本所有同步任务执行完才会执行。
+
+// catch 方法用于捕获 Promise 对象的异常，并执行一个回调函数，从而避免程序出现崩溃的情况,
+// catch 方法可以用于代替 Promise 中的 regect 方法
+// 比如：
+p.then((result) => {
+  // 在这里处理结果
+}).catch((err) => {
+  // 在这里处理错误
+})

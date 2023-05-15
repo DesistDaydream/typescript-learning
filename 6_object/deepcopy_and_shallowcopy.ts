@@ -1,7 +1,13 @@
 // DeepCopy(深拷贝) 与 ShallowCopy(浅拷贝)
 // 深拷贝复制变量值，对于引用数据，则递归至基本类型后，再复制。深拷贝后的对象与原来的对象是完全隔离的，互不影响，对一个对象的修改并不会影响另一个对象。
 // 浅拷贝是会将对象的每个属性进行依次复制，但是当对象的属性值是引用类型时，实质复制的是其**引用**，当**引用指向**的值改变时也会跟着变化。
-let obj = { name: "Tom", age: 18, info: { address: "北京" } }
+let obj = {
+  name: "Tom",
+  age: 18,
+  info: {
+    address: "北京",
+  },
+}
 
 // 深拷贝一个对象。通过 JSON.parse() 方法实现深拷贝
 let objForDeepCopy = JSON.parse(JSON.stringify(obj))

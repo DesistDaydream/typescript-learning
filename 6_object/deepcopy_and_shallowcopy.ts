@@ -8,6 +8,7 @@ let obj = {
     address: "北京",
   },
 }
+console.log("原始: ", obj)
 
 // 深拷贝一个对象。通过 JSON.parse() 方法实现深拷贝
 let objForDeepCopy = JSON.parse(JSON.stringify(obj))
@@ -18,7 +19,7 @@ let objForShallowCopy = { ...obj }
 obj.name = "Jerry" // 修改基本类型的属性
 obj.info.address = "上海" // 修改引用类型的属性
 
-console.log(obj)
+console.log("变化: ", obj)
 console.log(
   "深拷贝是一个完全独立的变量，原对象中引用类型的属性改变时，自身不变",
   objForDeepCopy

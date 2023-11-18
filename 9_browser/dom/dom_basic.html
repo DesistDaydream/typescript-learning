@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- 非行内样式 -->
+  <style>
+    div {
+      font-size: 20px;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <title>Document Object Mobel</title>
+</head>
+
+<body>
+  <div>一号</div>
+  <div class="box">二号</div>
+  <div class="box context">三号</div>
+  <div class="box" id="container">四号</div>
+
+  <!-- 这一部分操作元素的内容 -->
+  <div id="operate_text">
+    <p>元素的文本内容将会改变</p>
+  </div>
+  <div id="operate_hyper_text">
+    <p>元素的超文本内容将会改变</p>
+  </div>
+  <button id="read_content_button">获取内容</button>
+  <button id="update_content_button">改变内容</button>
+
+  <!-- 这一部分操作元素的属性 -->
+  <div id="operate_attribute" custom_attribute="custom_value" style="background-color: blue">
+    <p>元素的属性将会改变<input type="password" /></p>
+  </div>
+  <button id="read_attribute_button">获取属性</button>
+  <button id="update_attribute_button">改变属性</button>
+  <button id="delete_attribute_button">删除属性</button>
+
+  <!-- 这一部分操作元素的类名 -->
+  <div id="operate_class" class="class_name">
+    <p>元素的类将会改变</p>
+  </div>
+  <button id="read_class_button">获取类名</button>
+  <button id="update_class_button">改变类名</button>
+
+  <!-- 这一部分操作元素的样式 -->
+  <div id="operate_style" style="width: 200px; height: 30px; background-color: pink">
+    <p>元素的样式将会改变</p>
+  </div>
+  <button id="read_style_button">获取样式</button>
+  <button id="update_style_button">改变样式</button>
+
+  <script src="./dom_basic.js"></script>
+</body>
+
+</html>

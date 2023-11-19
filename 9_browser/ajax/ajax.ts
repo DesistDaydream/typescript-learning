@@ -14,9 +14,3 @@ xhr.onload = function () {
 
 // 使用配置好的信息发起 HTTP 请求
 xhr.send()
-
-// Fetch API 的示例
-fetch('https://api.github.com/users/DesistDaydream')
-  .then(response => response.json())
-  .then(json => console.log(json))
-  .catch(err => console.log('Request Failed', err))

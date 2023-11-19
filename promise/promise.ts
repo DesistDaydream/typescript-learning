@@ -58,6 +58,8 @@ p.then((res) => {
 // 比如：
 p.then((result) => {
   // 在这里处理结果
+  console.log(result)
 }).catch((err) => {
   // 在这里处理错误
+  console.log(err)
 })

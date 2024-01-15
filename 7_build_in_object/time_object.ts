@@ -48,8 +48,8 @@ function deltaT(startTime, endTime) {
   return "时间相差:" + day + "天" + hours + "小时" + minutes + "分"
 }
 
-var startTime = new Date(2021, 12, 27, 9, 00, 00)
-var endTime = new Date(2021, 12, 27, 17, 00, 00)
+var startTime = new Date(2021, 12, 27, 9, 0o0, 0o0)
+var endTime = new Date(2021, 12, 27, 17, 0o0, 0o0)
 
 function main() {
   // 获取时间

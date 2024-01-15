@@ -3,6 +3,7 @@
   "packages": {
     "specifiers": {
       "npm:@types/crypto-js@^4.2.1": "npm:@types/crypto-js@4.2.1",
+      "npm:crypto-js": "npm:crypto-js@4.2.0",
       "npm:crypto-js@^4.2.0": "npm:crypto-js@4.2.0"
     },
     "npm": {

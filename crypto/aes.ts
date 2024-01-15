@@ -1,5 +1,5 @@
 // https://blog.51cto.com/u_12632800/5192084
-import CryptoJS from "crypto-js"
+import CryptoJS from "npm:crypto-js"
 
 //AES加密
 function encrypt(text: string): string {

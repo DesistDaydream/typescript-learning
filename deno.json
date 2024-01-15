@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "aes": "https://deno.land/x/crypto@v0.10.1/aes.ts",
+    "block-modes": "https://deno.land/x/crypto@v0.10.1/block-modes.ts"
+  },
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "fmt": {
+    "lineWidth": 200,
+    "indentWidth": 2,
+    "semiColons": false
+  }
+}

@@ -127,9 +127,7 @@ let proxyInstance = new Proxy(obj, {
   // receiver：proxy 实例本身（严格地说，是操作行为所针对的对象）。可省略
   // 返回值：一个对象。
   get(target, property, receiver) {
-    console.log(
-      "触发 get() 方法的时机。当我们调用“被代理的目标对象”下的任何属性时。"
-    )
+    console.log("触发 get() 方法的时机。当我们调用“被代理的目标对象”下的任何属性时。")
     console.log("target 参数的值：", target)
     console.log("property 参数的值：", property)
     console.log("receiver 参数的值：", receiver)
@@ -150,9 +148,7 @@ let proxyInstance = new Proxy(obj, {
   // receiver：proxy 实例本身（严格地说，是操作行为所针对的对象）。可省略
   // 返回值：一个布尔值。
   set(target, property, newValue) {
-    console.log(
-      "触发 set() 方法的时机。当我们给“被代理的目标对象”下的任何属性赋值时。"
-    )
+    console.log("触发 set() 方法的时机。当我们给“被代理的目标对象”下的任何属性赋值时。")
     console.log("target 参数的值：", target)
     console.log("property 参数的值：", property)
     console.log("newValue 参数的值：", newValue)

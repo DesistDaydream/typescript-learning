@@ -68,7 +68,7 @@ ECZfetRusF4IncOklwIDAQAB
   var buffer = Buffer.from(toEncrypt, "utf8")
   var encrypted = crypto.publicEncrypt(
     { key: publicKey, padding: crypto.constants.RSA_PKCS1_PADDING },
-    buffer
+    buffer,
   )
   return encrypted.toString("base64")
 }

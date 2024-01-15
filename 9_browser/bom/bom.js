@@ -8,7 +8,7 @@ console.log("当前可视窗口宽度:", window.innerWidth)
 function PopUp() {
   // 询问框
   var confirmValue = window.confirm(
-    "询问框，该操作可以产生返回值。点确定返回 true，点取消返回 false"
+    "询问框，该操作可以产生返回值。点确定返回 true，点取消返回 false",
   )
   // 提示框
   window.alert("询问框返回值:" + confirmValue)
@@ -16,7 +16,7 @@ function PopUp() {
   // alert("询问框返回值:" + confirmValue)
   // 输入框
   var promptValue = window.prompt(
-    "输入框，可以将用户输入的内容作为返回值，若取消输入则返回 null"
+    "输入框，可以将用户输入的内容作为返回值，若取消输入则返回 null",
   )
   console.log("输入框输入的内容: ", promptValue)
 }
@@ -56,7 +56,7 @@ function Event() {
       "页面发生滚动了!卷去的高度尺寸为:",
       document.documentElement.scrollTop,
       "卷去的宽度尺寸为:",
-      document.documentElement.scrollLeft
+      document.documentElement.scrollLeft,
     )
   }
 }

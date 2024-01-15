@@ -41,7 +41,7 @@ function handleElementText() {
   var operateHyperText = document.getElementById("operate_hyper_text")
   // 除了 bom 中介绍的，在 javascript 中通过按钮的 id 引用按钮对象，还可以通过选择器获取按钮对象
   var updateContentButtonObject = document.getElementById(
-    "update_content_button"
+    "update_content_button",
   )
   // 获取文本
   read_content_button.onclick = function () {
@@ -78,11 +78,11 @@ function handleElementAttribute() {
       operateAttribute.id,
       "\n",
       "type:",
-      operateAttributeInput.type
+      operateAttributeInput.type,
     )
     console.log(
       "元素的自定义属性:\n",
-      operateAttribute.getAttribute("custom_attribute")
+      operateAttribute.getAttribute("custom_attribute"),
     )
   }
   // 改变属性
@@ -139,7 +139,7 @@ function handleElementStyle() {
       "  宽:",
       operateStyle.style.width,
       "高:",
-      operateStyle.style.height
+      operateStyle.style.height,
     )
     // 获取非行内样式
     console.log("非行内样式:\n")

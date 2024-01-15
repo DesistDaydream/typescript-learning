@@ -2,7 +2,7 @@
   "explorer.autoReveal": false,
   "javascript.format.semicolons": "remove",
   "typescript.format.semicolons": "remove",
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.windows": "PowerShell"
   // "deno.enable": true,
   // "deno.lint": true,
   // "deno.unstable": true

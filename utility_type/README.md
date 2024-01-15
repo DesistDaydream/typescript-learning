@@ -7,4 +7,5 @@ Utility Types(使用类型)，有时候也称为**工具类**。
 # Partial 与 Required
 
 `Partial<TYPE>` 就是把 `<>` 中指定的类型中的属性变为可选的
+
 `Required<TYPE>` 就是把 `<>` 中指定的类型中的属性变为必选的

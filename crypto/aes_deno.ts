@@ -1,5 +1,5 @@
-import { Aes } from "https://deno.land/x/crypto/aes.ts"
-import { Cbc, Padding } from "https://deno.land/x/crypto/block-modes.ts"
+import { Aes } from "aes"
+import { Cbc, Padding } from "block-modes"
 
 const te = new TextEncoder()
 

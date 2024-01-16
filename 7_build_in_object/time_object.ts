@@ -37,18 +37,18 @@ function setTime() {
 
 // 获取时间差，常用来做倒计时
 function deltaT(startTime, endTime) {
-  ms1 = startTime.getTime()
-  ms2 = endTime.getTime()
+  const ms1 = startTime.getTime()
+  const ms2 = endTime.getTime()
 
-  subtractVaule = Math.ceil((ms2 - ms1) / 1000)
-  day = Math.floor(subtractVaule / (60 * 60 * 24))
-  hours = Math.floor((subtractVaule % (60 * 60 * 24)) / (60 * 60))
-  minutes = Math.floor((subtractVaule % (60 * 60)) / 60)
+  const subtractVaule = Math.ceil((ms2 - ms1) / 1000)
+  const day = Math.floor(subtractVaule / (60 * 60 * 24))
+  const hours = Math.floor((subtractVaule % (60 * 60 * 24)) / (60 * 60))
+  const minutes = Math.floor((subtractVaule % (60 * 60)) / 60)
 
   return "时间相差:" + day + "天" + hours + "小时" + minutes + "分"
 }
 
-var startTime = new Date(2021, 12, 27, 9, 0o0, 0o0)
+const startTime = new Date(2021, 12, 27, 9, 0o0, 0o0)
 var endTime = new Date(2021, 12, 27, 17, 0o0, 0o0)
 
 function main() {

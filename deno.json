@@ -1,7 +1,8 @@
 {
   "imports": {
     "aes": "https://deno.land/x/crypto@v0.10.1/aes.ts",
-    "block-modes": "https://deno.land/x/crypto@v0.10.1/block-modes.ts"
+    "block-modes": "https://deno.land/x/crypto@v0.10.1/block-modes.ts",
+    "crypto-js": "npm:crypto-js"
   },
   "tasks": {
     "dev": "deno run --watch main.ts"

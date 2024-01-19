@@ -1,4 +1,4 @@
-export {}
+export { }
 
 // Class(类)
 // TS 中的类，是基于 ES6 的类的语法糖
@@ -29,6 +29,16 @@ class Person {
 let p = new Person("Tom", 18)
 console.log(p)
 p.sayHello()
+
+// Class 基本使用的简写
+class PersonSimple {
+  // 这里也可以使用一种省略 this 的简写
+  // 将属性的定义放在 constructor 中
+  constructor(public name: string, public age: number = 20) { }
+}
+
+let pSimple = new PersonSimple("Tom", 18)
+console.log("一种 class 的构造函数的简写示例: ", pSimple)
 
 // 上面的 class 相当于定义了下面的 interface
 interface Person {

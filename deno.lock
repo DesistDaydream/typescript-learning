@@ -3,12 +3,17 @@
   "packages": {
     "specifiers": {
       "npm:@types/crypto-js@^4.2.1": "npm:@types/crypto-js@4.2.1",
+      "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:crypto-js": "npm:crypto-js@4.2.0",
       "npm:crypto-js@^4.2.0": "npm:crypto-js@4.2.0"
     },
     "npm": {
       "@types/crypto-js@4.2.1": {
         "integrity": "sha512-FSPGd9+OcSok3RsM0UZ/9fcvMOXJ1ENE/ZbLfOPlBWj7BgXtEAM8VYfTtT760GiLbQIMoVozwVuisjvsVwqYWw==",
+        "dependencies": {}
+      },
+      "@types/node@18.16.19": {
+        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
         "dependencies": {}
       },
       "crypto-js@4.2.0": {
